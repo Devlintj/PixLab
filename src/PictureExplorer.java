@@ -1,8 +1,12 @@
 
 import java.awt.*;
 import java.awt.event.*;
+
 import javax.swing.*;
+
 import java.awt.image.*;
+import java.util.Scanner;
+
 import javax.swing.border.*;
 
 /**
@@ -796,7 +800,10 @@ public class PictureExplorer implements MouseMotionListener, ActionListener, Mou
 	 * Test Main. It will explore the beach
 	 */
 	public static void main(String args[]) {
-		Picture pix = new Picture("beach.jpg");
+		Scanner input = new Scanner(System.in);
+		System.out.println("enter what picture you would like to explore.");
+		String picture = input.next();
+		Picture pix = new Picture(picture);
 		pix.explore();
 	}
 
