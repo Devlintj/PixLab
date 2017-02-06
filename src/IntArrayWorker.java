@@ -84,5 +84,21 @@ public class IntArrayWorker {
 			}
 		}
 	}
-
+	
+	/**
+	 * count how many times an integer is in a matrix
+	 * 
+	 * return count
+	 */
+	public int getCount(int num) {
+		int count = 0;
+		for(int i = 0; i < matrix.length; i++) {
+			for(int j = 0; j < matrix[0].length; j++) {
+				if(num == matrix[i][j]) {
+					count++;
+				}
+			}
+		}
+		return count;
+	}
 }
