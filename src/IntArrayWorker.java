@@ -118,4 +118,17 @@ public class IntArrayWorker {
 		}
 		return largest;
 	}
+	
+	/**
+	 * get sum of ints in a column
+	 * 
+	 * return colTotal
+	 */
+	public int getColTotal(int column) {
+		int sum = 0;
+		for (int i = 0; i < matrix.length; i++) {
+			sum+= matrix[i][column];
+		}
+		return sum;
+	}
 }
