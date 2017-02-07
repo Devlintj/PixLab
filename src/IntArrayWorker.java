@@ -86,9 +86,9 @@ public class IntArrayWorker {
 	}
 	
 	/**
-	 * count how many times an integer is in a matrix
+	 * Count how many times an integer is in a matrix
 	 * 
-	 * return count
+	 * @return count
 	 */
 	public int getCount(int num) {
 		int count = 0;
@@ -103,9 +103,9 @@ public class IntArrayWorker {
 	}
 	
 	/**
-	 * get largest int in a matrix
+	 * Get largest int in a matrix
 	 * 
-	 * return largest
+	 * @return largest
 	 */
 	public int getLargest() {
 		int largest = matrix[0][0];
@@ -120,9 +120,9 @@ public class IntArrayWorker {
 	}
 	
 	/**
-	 * get sum of ints in a column
+	 * Get sum of ints in a column
 	 * 
-	 * return colTotal
+	 * @return colTotal
 	 */
 	public int getColTotal(int column) {
 		int sum = 0;
