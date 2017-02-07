@@ -101,4 +101,21 @@ public class IntArrayWorker {
 		}
 		return count;
 	}
+	
+	/**
+	 * get largest int in a matrix
+	 * 
+	 * return largest
+	 */
+	public int getLargest() {
+		int largest = matrix[0][0];
+		for(int i = 0; i < matrix.length; i++) {
+			for(int j = 0; j < matrix[0].length; j++) {
+				if(matrix[i][j] > largest) {
+					largest = matrix[i][j];
+				}
+			}
+		}
+		return largest;
+	}
 }
