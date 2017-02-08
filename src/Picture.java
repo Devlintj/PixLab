@@ -123,6 +123,25 @@ public class Picture extends SimplePicture {
 			}
 		}
 	}
+	
+	/** Method to make a picture various scales of gray */
+	public void grayscale() {
+		int red;
+		int blue;
+		int green;
+		Pixel[][] pixels = this.getPixels2D();
+		for (Pixel[] rowArray : pixels) {
+			for (Pixel pixelObj : rowArray) {
+				red = pixelObj.getRed();
+				blue = pixelObj.getBlue();
+				green = pixelObj.getGreen();
+				int average = (red + blue + green)/ 3;
+				pixelObj.setRed(average);
+				pixelObj.setBlue(average);
+				pixelObj.setGreen(average);
+			}
+		}
+	}
 
 	/**
 	 * Method that mirrors the picture around a vertical mirror in the center of
