@@ -275,6 +275,33 @@ public class Picture extends SimplePicture {
 		}
 		System.out.println(count);
 	}
+	
+	/** Mirror arms of snowman picture */
+	public void mirrorArms() {
+		//left arm start - row:159 col:105 end - row:190 col:170
+		//right arm start - row:172 col:239 end - row:196 col:294
+		int mirrorPointLeft = 190;
+		int mirrorPointRight = 196;
+		Pixel topPixel = null;
+		Pixel botPixel = null;
+		Pixel[][] pixels = this.getPixels2D();
+		// loop through left arm
+		for (int row = 159; row < mirrorPointLeft; row++) {
+			for (int col = 105; col < 170; col++) {
+				topPixel = pixels[row][col];
+				botPixel = pixels[mirrorPointLeft - row + mirrorPointLeft][col];
+				botPixel.setColor(topPixel.getColor());
+			}
+		}
+		// loop through right arm
+		for (int row = 172; row < mirrorPointRight; row++) {
+			for (int col = 239; col < 294; col++) {
+				topPixel = pixels[row][col];
+				botPixel = pixels[mirrorPointRight - row + mirrorPointRight][col];
+				botPixel.setColor(topPixel.getColor());
+			}
+		}
+	}
 
 	/**
 	 * copy from the passed fromPic to the specified startRow and startCol in

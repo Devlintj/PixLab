@@ -106,6 +106,14 @@ public class PictureTester
     temple.explore();
   }
   
+  /** Method to test mirrorArms */
+  public static void testMirrorArms() {
+	  Picture snowman = new Picture("snowman.jpg");
+	  snowman.explore();
+	  snowman.mirrorArms();
+	  snowman.explore();
+  }
+  
   /** Method to test the collage method */
   public static void testCollage()
   {
@@ -142,7 +150,7 @@ public class PictureTester
     testMirrorHorizontalBotToTop();
     testMirrorDiagonal();
     testMirrorTemple();
-    //testMirrorArms();
+    testMirrorArms();
     //testMirrorGull();
     //testMirrorDiagonal();
     //testCollage();
