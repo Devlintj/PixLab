@@ -85,6 +85,18 @@ public class PictureTester
     caterpillar.explore();
   }
   
+  /** Method to test mirrorDiagonal */
+  public static void testMirrorDiagonal() {
+	  Picture beach = new Picture("beach.jpg");
+	  beach.explore();
+	  beach.mirrorDiagonal();
+	  beach.explore();
+	  Picture barbara = new Picture("barbaraS.jpg");
+	  barbara.explore();
+	  barbara.mirrorDiagonal();
+	  barbara.explore();
+  }
+  
   /** Method to test mirrorTemple */
   public static void testMirrorTemple()
   {
@@ -128,6 +140,7 @@ public class PictureTester
     testMirrorVerticalRightToLeft();
     testMirrorHorizontal();
     testMirrorHorizontalBotToTop();
+    testMirrorDiagonal();
     //testMirrorTemple();
     //testMirrorArms();
     //testMirrorGull();

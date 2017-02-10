@@ -231,6 +231,29 @@ public class Picture extends SimplePicture {
 			}
 		}
 	}
+	
+	/**
+	 * Method to mirror the picture diagonally from
+	 * the top left to the bottom right
+	 */
+	public void mirrorDiagonal() {
+		Pixel[][] pixels = this.getPixels2D();
+		Pixel orgPixel = null;
+		Pixel flipPixel = null;
+		int diagonal;
+		if(pixels.length <= pixels[0].length) {
+			diagonal = pixels.length;
+		} else {
+			diagonal = pixels[0].length;
+		}
+		for(int row = 0; row < diagonal; row++) {
+			for(int col = 0; col < diagonal; col++) {
+				orgPixel = pixels[row][col];
+				flipPixel = pixels[col][row];
+				orgPixel.setColor(flipPixel.getColor());
+			}
+		}
+	}
 
 	/** Mirror just part of a picture of a temple */
 	public void mirrorTemple() {
