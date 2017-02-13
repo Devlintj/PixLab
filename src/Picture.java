@@ -361,6 +361,22 @@ public class Picture extends SimplePicture {
 		this.mirrorVertical();
 		this.write("collage.jpg");
 	}
+	
+	/** Method do copy only part of the original picture */
+	public void copyTwo(Picture fromPic, int startRow, int startCol, 
+						int endRow, int endCol, int toStartRow, int toStartCol) {
+		Pixel fromPixel = null;
+		Pixel toPixel = null;
+		Pixel[][] fromPixels = fromPic.getPixels2D();
+		Pixel[][] toPixels = this.getPixels2D();
+		for(int fromRow = startRow, toRow = toStartRow; fromRow < endRow && toRow < toPixels.length; fromRow++, toRow++) {
+			for(int fromCol = startCol, toCol = toStartCol; fromCol < endCol && toCol < toPixels[0].length; fromCol++, toCol++) {
+				fromPixel = fromPixels[fromRow][fromCol];
+				toPixel = toPixels[toRow][toCol];
+				toPixel.setColor(fromPixel.getColor());
+			}
+		}
+	}
 
 	/**
 	 * Method to show large changes in color

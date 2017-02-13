@@ -130,6 +130,15 @@ public class PictureTester
     canvas.explore();
   }
   
+  /** Method to test the copyTwo method */
+  public static void testCopyTwo() {
+	  Picture snowman = new Picture("snowman.jpg");
+	  Picture canvas = new Picture("640x480.jpg");
+	  snowman.explore();
+	  canvas.copyTwo(snowman, 100, 100, 300, 300, 0, 0);
+	  canvas.explore();
+  }
+  
   /** Method to test edgeDetection */
   public static void testEdgeDetection()
   {
@@ -163,6 +172,7 @@ public class PictureTester
     //testMirrorDiagonal();
     //testCollage();
     //testCopy();
+    testCopyTwo();
     //testEdgeDetection();
     //testEdgeDetection2();
     //testChromakey();
