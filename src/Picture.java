@@ -302,6 +302,22 @@ public class Picture extends SimplePicture {
 			}
 		}
 	}
+	
+	/** Mirrors a seagull so that two seagulls are next to eachother on a beach */
+	public void mirrorGull() {
+		//start row:235 col:238. End row: 320 col: 344
+		int mirrorPoint = 344;
+		Pixel leftPixel = null;
+		Pixel rightPixel = null;
+		Pixel[][] pixels = this.getPixels2D();
+		for(int row = 235; row < 320; row++) {
+			for(int col = 238; col < mirrorPoint; col++) {
+				leftPixel = pixels[row][col];
+				rightPixel = pixels[row][mirrorPoint - col + mirrorPoint];
+				rightPixel.setColor(leftPixel.getColor());
+			}
+		}
+	}
 
 	/**
 	 * copy from the passed fromPic to the specified startRow and startCol in
