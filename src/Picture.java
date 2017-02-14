@@ -377,6 +377,27 @@ public class Picture extends SimplePicture {
 			}
 		}
 	}
+	
+	/** Method to create Tyler's very own canvas using various methods and techniques */
+	public void myCollage() {
+		Picture barbara = new Picture("barbaraS.jpg");
+		Picture seagull = new Picture("seagull.jpg");
+		Picture snowman = new Picture("snowman.jpg");
+		this.copy(barbara, 0, 0);
+		this.copy(barbara, 150, 0);
+		this.copy(barbara, 300, 0);
+		this.copyTwo(snowman, 100, 100, 300, 300, 0, 150);
+		this.copyTwo(snowman, 100, 100, 300, 300, 150, 150);
+		this.copyTwo(snowman, 100, 100, 300, 300, 350, 150);
+		this.copyTwo(seagull, 230, 230, 350, 350, 0, 100);
+		this.copyTwo(seagull, 230, 230, 350, 350, 150, 100);
+		this.copyTwo(seagull, 230, 230, 350, 350, 300, 100);
+		this.mirrorVertical();
+		this.mirrorHorizontal();
+		this.mirrorDiagonal();
+		this.negate();
+		this.mirrorVerticalRightToLeft();
+	}
 
 	/**
 	 * Method to show large changes in color

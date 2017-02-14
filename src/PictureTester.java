@@ -139,6 +139,13 @@ public class PictureTester
 	  canvas.explore();
   }
   
+  /**Method to test myCollage method */
+  public static void testMyCollage() {
+	  Picture canvas = new Picture("640x480.jpg");
+	  canvas.myCollage();
+	  canvas.explore();
+  }
+  
   /** Method to test edgeDetection */
   public static void testEdgeDetection()
   {
@@ -173,6 +180,7 @@ public class PictureTester
     //testCollage();
     //testCopy();
     testCopyTwo();
+    testMyCollage();
     //testEdgeDetection();
     //testEdgeDetection2();
     //testChromakey();
