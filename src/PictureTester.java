@@ -150,8 +150,14 @@ public class PictureTester
   public static void testEdgeDetection()
   {
     Picture swan = new Picture("swan.jpg");
+    Picture snowman = new Picture("snowman.jpg");
+    Picture barbaraS = new Picture("barbaraS.jpg");
     swan.edgeDetection(10);
     swan.explore();
+    snowman.edgeDetection(10);
+    snowman.explore();
+    barbaraS.edgeDetection(10);
+    barbaraS.explore();
   }
   
   /** Main method for testing.  Every class can have a main
@@ -181,7 +187,7 @@ public class PictureTester
     //testCopy();
     testCopyTwo();
     testMyCollage();
-    //testEdgeDetection();
+    testEdgeDetection();
     //testEdgeDetection2();
     //testChromakey();
     //testEncodeAndDecode();
