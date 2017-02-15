@@ -426,6 +426,79 @@ public class Picture extends SimplePicture {
 			}
 		}
 	}
+	
+	public void edgeDetection2(int edgeDist) {
+		Pixel centerPixel, leftPixel, topPixel, botPixel, rightPixel, topLeft, botLeft, topRight, botRight = null;
+		Pixel[][] pixels = this.getPixels2D();
+		Color leftColor, botColor, rightColor, topColor = null;
+		for(int row = 1; row < pixels.length - 3; row += 3) {
+			for(int col = 1; col < pixels[0].length - 3; col += 3) {
+				int black = 0;
+				centerPixel = pixels[row][col];
+				leftPixel= pixels[row][col - 1];
+				rightPixel = pixels[row][col + 1];
+				botPixel = pixels[row + 1][col];
+				topPixel = pixels[row - 1][col];
+				topLeft = pixels[row - 1][col - 1];
+				topRight = pixels[row - 1][col + 1];
+				botLeft = pixels[row + 1][col - 1];
+				botRight = pixels[row + 1][col + 1];
+				leftColor = leftPixel.getColor();
+				rightColor = rightPixel.getColor();
+				topColor = topPixel.getColor();
+				botColor = botPixel.getColor();
+				if(centerPixel.colorDistance(rightColor) > edgeDist) {
+					rightPixel.setColor(Color.BLACK);
+					black++;
+				} else {
+					rightPixel.setColor(Color.WHITE);
+				}
+				if(centerPixel.colorDistance(botColor) > edgeDist) {
+					botPixel.setColor(Color.BLACK);
+					black++;
+				} else {
+					botPixel.setColor(Color.WHITE);
+				}
+				if(centerPixel.colorDistance(topColor) > edgeDist) {
+					topPixel.setColor(Color.BLACK);
+					black++;
+				} else {
+					topPixel.setColor(Color.WHITE);
+				}
+				if(centerPixel.colorDistance(leftColor) > edgeDist) {
+					leftPixel.setColor(Color.BLACK);
+					black++;
+				} else {
+					leftPixel.setColor(Color.WHITE);
+				}
+				if(botPixel.getColor() == rightPixel.getColor()) {
+					botRight.setColor(rightPixel.getColor());
+				} else {
+					botRight.setColor(Color.BLACK);
+				}
+				if(topPixel.getColor() == rightPixel.getColor()) {
+					topRight.setColor(rightPixel.getColor());
+				} else {
+					topRight.setColor(Color.BLACK);
+				}
+				if(botPixel.getColor() == leftPixel.getColor()) {
+					botLeft.setColor(leftPixel.getColor());
+				} else {
+					botLeft.setColor(Color.BLACK);
+				}
+				if(topPixel.getColor() == leftPixel.getColor()) {
+					topLeft.setColor(leftPixel.getColor());
+				} else {
+					topLeft.setColor(Color.BLACK);
+				}
+				if(black > 0) {
+					centerPixel.setColor(Color.BLACK);
+				} else {
+					centerPixel.setColor(Color.WHITE);
+				}
+			}
+		}
+	}
 
 	/*
 	 * Main method for testing - each class in Java can have a main method

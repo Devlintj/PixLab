@@ -160,6 +160,20 @@ public class PictureTester
     barbaraS.explore();
   }
   
+  /** Method to test edgeDetection2 */
+  public static void testEdgeDetection2()
+  {
+    Picture swan = new Picture("swan.jpg");
+    Picture snowman = new Picture("snowman.jpg");
+    Picture barbaraS = new Picture("barbaraS.jpg");
+    swan.edgeDetection2(10);
+    swan.explore();
+    snowman.edgeDetection2(10);
+    snowman.explore();
+    barbaraS.edgeDetection2(10);
+    barbaraS.explore();
+  }
+  
   /** Main method for testing.  Every class can have a main
     * method in Java */
   public static void main(String[] args)
@@ -188,7 +202,7 @@ public class PictureTester
     testCopyTwo();
     testMyCollage();
     testEdgeDetection();
-    //testEdgeDetection2();
+    testEdgeDetection2();
     //testChromakey();
     //testEncodeAndDecode();
     //testGetCountRedOverValue(250);
