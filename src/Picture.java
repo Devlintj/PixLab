@@ -433,8 +433,6 @@ public class Picture extends SimplePicture {
 		Color leftColor, botColor, rightColor, topColor = null;
 		for(int row = 1; row <= pixels.length - 2; row += 3) {
 			for(int col = 1; col <= pixels[0].length - 2; col += 3) {
-				int black = 0;
-				int topNum = 0, botNum = 0, leftNum = 0, rightNum = 0;
 				centerPixel = pixels[row][col];
 				leftPixel= pixels[row][col - 1];
 				rightPixel = pixels[row][col + 1];
@@ -450,71 +448,76 @@ public class Picture extends SimplePicture {
 				botColor = botPixel.getColor();
 				if(centerPixel.colorDistance(rightColor) > edgeDist) {
 					rightPixel.setColor(Color.BLACK);
-					black++;
-					rightNum++;
 				} else {
 					rightPixel.setColor(Color.WHITE);
 				}
 				if(centerPixel.colorDistance(botColor) > edgeDist) {
 					botPixel.setColor(Color.BLACK);
-					black++;
-					botNum++;
 				} else {
 					botPixel.setColor(Color.WHITE);
 				}
 				if(centerPixel.colorDistance(topColor) > edgeDist) {
 					topPixel.setColor(Color.BLACK);
-					black++;
-					topNum++;
 				} else {
 					topPixel.setColor(Color.WHITE);
 				}
 				if(centerPixel.colorDistance(leftColor) > edgeDist) {
 					leftPixel.setColor(Color.BLACK);
-					black++;
-					leftNum++;
 				} else {
 					leftPixel.setColor(Color.WHITE);
 				}
-				if(topNum == botNum && topNum == 1) {
+				if(isSame(topPixel, botPixel) && checkBlack(topPixel)) {
 					leftPixel.setColor(topPixel.getColor());
 					rightPixel.setColor(topPixel.getColor());
-					leftNum = topNum;
-					rightNum = botNum;
 				}
-				if(leftNum == rightNum && leftNum == 1) {
+				if(isSame(leftPixel, rightPixel) && checkBlack(leftPixel)) {
 					topPixel.setColor(leftPixel.getColor());
 					botPixel.setColor(leftPixel.getColor());
-					topNum = leftNum;
-					botNum = rightNum;
 				}
-				if(botNum == rightNum) {
+				if(isSame(botPixel, rightPixel)) {
 					botRight.setColor(rightPixel.getColor());
 				} else {
 					botRight.setColor(Color.WHITE);
 				}
-				if(topNum == rightNum) {
+				if(isSame(topPixel, rightPixel)) {
 					topRight.setColor(rightPixel.getColor());
 				} else {
 					topRight.setColor(Color.WHITE);
 				}
-				if(botNum == leftNum) {
+				if(isSame(botPixel, leftPixel)) {
 					botLeft.setColor(leftPixel.getColor());
 				} else {
 					botLeft.setColor(Color.WHITE);
 				}
-				if(topNum == leftNum) {
+				if(isSame(topPixel, leftPixel)) {
 					topLeft.setColor(leftPixel.getColor());
 				} else {
 					topLeft.setColor(Color.WHITE);
 				}
-				if(black > 0) {
+				if(checkBlack(topPixel) || checkBlack(botPixel) || checkBlack(leftPixel) || checkBlack(rightPixel)) {
 					centerPixel.setColor(Color.BLACK);
 				} else {
 					centerPixel.setColor(Color.WHITE);
 				}
 			}
 		}
+	}
+	
+	public boolean isSame(Pixel a, Pixel b) {
+		Color firstColor = a.getColor();
+		Color secondColor = b.getColor();
+		if(firstColor.equals(secondColor)) {
+			return true;
+		}
+		return false;
+	}
+	
+	public boolean checkBlack(Pixel a) {
+		Color pixel = a.getColor();
+		if(pixel.equals(Color.BLACK)) {
+			return true;
+		}
+		return false;
 	}
 
 	/*
